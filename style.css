@@ -1,0 +1,508 @@
+@import url("https://fonts.googleapis.com/css2?family=Fruktur&display=swap");
+:root {
+  /************** colors *************/
+  --first: rgb(18 154 214);
+  --second: rgb(8 42 72);
+  --therd: rgb(11 186 231);
+  --fourth: #ddddddc4;
+  /**************  *************/
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(img/background.png);
+  background-size: cover;
+  height: 100vh;
+  padding: 20px 0;
+  /* font-family: 'Poppins', sans-serif; */
+  font-family: 'cairo', sans-serif;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #181a1ccc;
+  z-index: -1;
+}
+
+body::after {
+  background-color: #181a1c;
+  transition: 0.7s;
+  z-index: 80;
+  opacity: 1;
+}
+body.hidden::after {
+  z-index: -1;
+  opacity: 0;
+}
+
+body.blur::after {
+  background-color: #181a1ccc;
+  backdrop-filter: blur(4px);
+  z-index: 95;
+  opacity: 1;
+}
+
+/*********** Start Launcher ***********/
+
+.launcher {
+  background-color: var(--second);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 100;
+  transition: 0.6s;
+  user-select: none;
+}
+
+.launcher span {
+  font-size: 6.5rem;
+  font-family: "Fruktur", cairo;
+  letter-spacing: 1px;
+  margin: 0;
+  color: var(--therd);
+  text-align: center;
+  text-shadow: 3px 4px 6px white;
+}
+
+span.slide-out {
+  animation: slide-out-bck-top 0.5s 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    both;
+}
+
+@keyframes slide-out-bck-top {
+  0% {
+    -webkit-transform: translateZ(1) translateY(0);
+    transform: translateZ(1) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-1100px) translateY(-1000px);
+    transform: translateZ(-1100px) translateY(-1000px);
+    opacity: 0;
+  }
+}
+
+/*! ********** End Launcher ***********/
+
+/*! ********** Start Login Page ***********/
+
+.login {
+  position: absolute;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--second);
+  border-radius: 12px;
+  padding: 15px;
+  z-index: 90;
+  transition: 0.6s;
+}
+
+.login h2 {
+  font-size: 47px;
+  text-align: center;
+  color: var(--therd);
+}
+
+.login input {
+  width: 100%;
+  font-size: 32px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  margin-bottom: 17px 0 13px;
+}
+
+.login p {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--fourth);
+  margin: 20px 0 15px;
+}
+
+.login .avatar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+.login .avatar img {
+  width: 100px;
+  border-radius: 50%;
+  border: 4px solid white;
+  cursor: pointer;
+  filter: grayscale(0.7);
+}
+.login .avatar img.active,
+.login .avatar img:hover {
+  filter: grayscale(0);
+}
+
+.login button {
+  display: block;
+  margin: 30px auto 0;
+  width: 100%;
+  padding: 13px;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  font-size: 37px;
+  font-weight: bold;
+  color: var(--fourth);
+  background-color: var(--therd);
+  cursor: pointer;
+}
+
+/*! ********** End Login Page ***********/
+
+/*! ********** Start Home Page ***********/
+
+/*! ********** Start Top Slide ***********/
+
+.container {
+  width: 50%;
+  margin: 0 auto 20px;
+}
+
+.top-slide {
+  height: 75px;
+  padding: 10px 37px;
+  background-color: var(--second);
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  padding: 2px;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.user span {
+  font-size: 27px;
+  font-weight: 600;
+}
+
+.open {
+  font-size: 35px;
+  cursor: pointer;
+}
+
+/*TODO : *********** Settings Box ***********/
+
+.settings {
+  position: absolute;
+  top: calc(50% - 142.5px);
+  left: calc(50% - 170px);
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  z-index: 100;
+  transform: scale(0);
+  transition: 0.6s;
+}
+
+.settings h2 {
+  color: var(--second);
+  font-size: 32px;
+  margin-top: 15px;
+}
+
+.close {
+  position: absolute;
+  top: -21px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 42px;
+  background-color: white;
+  color: red;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.settings .box {
+  background-color: #ededed;
+  margin: 10px 0;
+  padding: 15px 20px;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.settings .box > label {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--second)
+}
+
+.type {
+  display: flex;
+}
+
+.type input {
+  display: none;
+}
+
+.type label:not(:last-of-type) {
+  margin-right: 10px;
+}
+
+.type label::before {
+  font-family: "font awesome 6 free";
+  font-weight: 900;
+  font-size: 45px;
+  width: 60px;
+  height: 60px;
+  border-radius: 9px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--first);
+  opacity: 0.50;
+  cursor: pointer;
+}
+.type input:checked + label::before,
+.type label:hover::before {
+  opacity: 1;
+}
+
+.type label:first-of-type::before {
+  content: "\2b";
+}
+.type label:nth-of-type(2)::before {
+  content: "\f068";
+}
+.type label:nth-of-type(3)::before {
+  content: "\f00d";
+}
+.type label:last-of-type::before {
+  content: "\f529";
+}
+
+/*! ********** End Top Slide ***********/
+
+/*! ********** Start Content Section ***********/
+
+.content {
+  background-color: white;
+  margin: 20px 0px;
+  padding: 10px;
+  border-radius: 12px;
+  height: 750px;
+  position: relative;
+}
+
+.content h1 {
+  text-align: center;
+  font-size: 46px;
+  color: var(--second);
+  margin: 0px 0 30px;
+}
+
+.content > .box {
+  position: absolute;
+  left: 10px;
+  width: calc(100% - 20px);
+  top: 200px;
+}
+
+.content .question {
+  margin: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.content .question .num,
+.content .result {
+  font-size: 50px;
+  font-weight: 600;
+  background-color: var(--therd);
+  display: inline-block;
+  height: 70px;
+  width: 70px;
+  border-radius: 20px;
+  line-height: 1.4;
+  text-align: center;
+  color: white;
+}
+
+.content .result {
+  background-color: var(--therd);
+  color: #CC1818;
+  border: none;
+  outline: none;
+  width: 100px;
+}
+
+.content .Calculation {
+  font-size: 36px;
+  color: var(--second);
+  border-radius: 50%;
+}
+
+/* .content .control {
+  position: absolute;
+  top: 190px;
+  left: 10px;
+  width: calc(100% - 20px);
+} */
+.content .tips {
+  height: 70px;
+  padding: 7px 0;
+  margin: 25px 10px;
+  text-align: center;
+  font-size: 37px;
+  font-weight: 500;
+  color: var(--second);
+  border-radius: 13px;
+  background: #ddddddc4;
+}
+
+.content .control .box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.content .create,
+.content .check {
+  font-family: cairo, "Courier";
+  flex-basis: 45%;
+  padding: 5px 25px;
+  border: none;
+  outline: none;
+  font-size: 36px;
+  font-weight: bold;
+  border-radius: 11px;
+  color: white;
+  background-image: linear-gradient(145deg, var(--therd) 25%, var(--first) 50%, var(--second));
+  cursor: pointer;
+}
+
+.content .counter {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+}
+
+.content .counter .box {
+  max-height: 315px;
+  background-color: var(--fourth);
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
+  flex-basis: 48%;
+  overflow-y: auto;
+  box-shadow: 1px 1px 7px 0px #767676;
+}
+
+.content .counter .box::-webkit-scrollbar {
+  width: 10px;
+}
+.content .counter .box::-webkit-scrollbar-track {
+  background-color:var(--second);
+  border-radius: 6px;
+} 
+.content .counter .box::-webkit-scrollbar-thumb { 
+  background-color: var(--fourth);
+  border-radius:6px;
+}
+.content .counter .box::-webkit-scrollbar-thumb:hover { 
+  background-color: var(--therd);
+  box-shadow: inset 0 0 2px 0 rgba(0, 0, 0, 0.616);
+}
+
+.content .counter .box h2 {
+  font-weight: 500;
+  font-size: 30px;
+  position: sticky;
+  background-color: #e5e5e5;
+  top: -12px;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0px 0px 0px 5px #e5e5e5;
+}
+.content .counter .box:first-child h2 {
+  color: #4da818;
+}
+.content .counter .box:last-child h2 {
+  color: #a81818;
+}
+
+.content .counter .box h2 span {
+  font-weight: bold;
+}
+
+.content .counter .box > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.content .counter .box > div span {
+  font-size: 27px;
+  font-weight: 500;
+  text-align: left;
+  border-bottom: 2px solid var(--first);
+  color: var(--second);
+  border-radius: 7px;
+  box-shadow: 2px 3px 5px 0px #888888;
+  padding: 8px 15px;
+}
+
+
+/*! ********** End Content Section ***********/
+
+/*! ********** End Home Page ***********/
+
+footer {
+  background-color: var(--first);
+  padding: 10px 0;
+  text-align: center;
+  font-size: 23px;
+  font-weight: 600;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}

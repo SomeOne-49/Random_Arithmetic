@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Arithmetic</title>
+    <!-- Google Fonts "Poppins" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="img/shortcut.png" />
+    <!-- Font awesome v6 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <!-- Math.js  -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.2.0/math.js"
+    integrity="sha512-F1ca37TVbLLj4uVCdZq42EjsorxUOO04xHQ1cvKoRuGJcqRYNURFl+vFPdUC4Io87utzt7WiWAqBPQfRV+yTDw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <body>
+    <!--! Start launcher Section  -->
+    <div class="launcher">
+      <span>Random<br />Math Problems</span>
+    </div>
+    <!--! End launcher Section  -->
+
+    <!--! Start Login Page  -->
+    
+    <div class="login">
+      <h2>Log in</h2>
+      <input type="text" placeholder="Enter Your Name..." />
+      <p>Choose your Avatar :</p>
+      <div class="avatar">
+        <img src="img/avatar-01.png" alt="avatar" />
+        <img src="img/avatar-02.png" alt="avatar" />
+        <img src="img/avatar-03.png" alt="avatar" />
+        <img src="img/avatar-04.png" alt="avatar" />
+        <img src="img/avatar-05.png" alt="avatar" />
+        <img src="img/avatar-06.png" alt="avatar" />
+      </div>
+      <button>Start</button>
+    </div>
+
+    <!--! End Login Page  -->
+
+    <!--! Start Home Page  -->
+    <div class="container">
+      <div class="top-slide">
+        <div class="user">
+          <img src="img/avatar-02.png" alt="user" />
+          <span>Albaraa alismail</span>
+        </div>
+        <i class="open fa-solid fa-gear"></i>
+        <div class="settings">
+          <i class="fa-solid fa-xmark close"></i>
+          <h2>Settings box</h2>
+          <div class="box">
+            <label for="type">Type of Operations</label>
+            <div class="type">
+              <input type="checkbox" name="operator" id="fa-plus" />
+              <label for="fa-plus" data-type="\2b"></label>
+              <input type="checkbox" name="operator" id="fa-minus" />
+              <label for="fa-minus" data-type="\f068"></label>
+              <input type="checkbox" name="operator" id="fa-xmark" />
+              <label for="fa-xmark" data-type="\f00d"></label>
+              <input type="checkbox" name="operator" id="fa-divide" />
+              <label for="fa-divide" data-type="\f529"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <h1>Random Arithmetic operator</h1>
+        <div class="question"></div>
+        <div class="box">
+          <div class="control">
+            <div class="tips"></div>
+            <div class="box">
+              <button class="create">Create</button>
+              <button class="check">Check</button>
+            </div>
+            <audio src="good.mp3" class="good"></audio>
+            <audio src="bad.mp3" class="bad"></audio>
+          </div>
+          <div class="counter">
+            <div class="box">
+              <h2>Correct Answer <span class="num">0</span></h2>
+              <div class="correct"></div>
+            </div>
+            <div class="box">
+              <h2>Wrong Answer <span class="num">0</span></h2>
+              <div class="wrong"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--! End Home Page  -->
+    <footer>Creat With 💕 Rioter_Dev &copy; 2022</footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
